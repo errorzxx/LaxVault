@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex">
+
+<div class="w-64 bg-blue-900 text-white h-screen p-6">
+
+<h2 class="text-xl font-bold mb-6">LaxVault</h2>
+
+<ul>
+<li class="mb-4">Browse Lawyers</li>
+<li class="mb-4">My Cases</li>
+<li>Logout</li>
+</ul>
+
+</div>
+<div class="mb-6">
+
+<input
+type="text"
+placeholder="Search lawyer specialization..."
+class="w-full p-3 border rounded-lg shadow-sm">
+
+</div>
+
+
+<div class="grid grid-cols-3 gap-6">
+
+{% for lawyer in lawyers %}
+
+<div class="bg-white rounded-2xl shadow-xl p-6 hover:scale-105 transition">
+
+<img
+src="https://i.pravatar.cc/100"
+class="w-16 h-16 rounded-full mb-4">
+
+<h3 class="text-lg font-bold">
+{{ lawyer.name }}
+</h3>
+
+<p class="text-gray-500">
+{{ lawyer.specialization }}
+</p>
+
+<p class="text-yellow-500 mt-1">
+⭐ {{ lawyer.rating }}
+</p>
+
+<a href="/hire/{{ lawyer.id }}">
+
+<button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+
+Hire Lawyer
+
+</button>
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

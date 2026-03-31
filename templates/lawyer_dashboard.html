@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LaxVault Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-br from-indigo-100 via-white to-blue-100">
+
+<div class="flex min-h-screen">
+
+<!-- Sidebar -->
+<div class="w-64 bg-indigo-900 text-white p-6 shadow-xl">
+
+<h1 class="text-2xl font-bold mb-10 flex items-center gap-2">
+<i class="fa-solid fa-shield-halved"></i>
+LaxVault
+</h1>
+
+<ul class="space-y-6 text-lg">
+
+<li class="flex items-center gap-3 hover:text-blue-300 cursor-pointer">
+<i class="fa-solid fa-briefcase"></i>
+My Cases
+</li>
+
+<li class="flex items-center gap-3 hover:text-blue-300 cursor-pointer">
+<i class="fa-solid fa-message"></i>
+Messages
+</li>
+
+<li class="flex items-center gap-3 hover:text-blue-300 cursor-pointer">
+<i class="fa-solid fa-user"></i>
+Profile
+</li>
+
+<li class="flex items-center gap-3 hover:text-red-300 cursor-pointer">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- Main Content -->
+<div class="flex-1 p-10">
+
+<h1 class="text-3xl font-bold mb-8 text-gray-700">
+Assigned Cases
+</h1>
+
+
+<div class="grid md:grid-cols-2 gap-6">
+
+{% for case in cases %}
+
+<div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 hover:shadow-2xl transition">
+
+<div class="flex items-center justify-between mb-4">
+
+<div class="flex items-center gap-3">
+
+<img src="https://i.pravatar.cc/60"
+class="rounded-full">
+
+<div>
+
+<p class="font-semibold text-gray-700">Client Case</p>
+<p class="text-sm text-gray-500">Case ID: {{ case.id }}</p>
+
+</div>
+
+</div>
+
+<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+Active
+</span>
+
+</div>
+
+<p class="text-gray-600 mb-4">
+{{ case.case_details }}
+</p>
+
+<a href="/case/{{ case.id }}">
+<button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+View Details
+</button>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
